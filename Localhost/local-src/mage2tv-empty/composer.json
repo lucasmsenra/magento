@@ -1,0 +1,24 @@
+{
+    "name": "mage2tv/module-empty",
+    "description": "N/A",
+    "type": "magento2-module",
+    "license": [
+        "BSD-3-Clause"
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "version": "0.0.1",
+    "require": {
+        "php": "~7.4.0||~8.1.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mage2tv\\Empty\\": ""
+        }
+    }
+}
+

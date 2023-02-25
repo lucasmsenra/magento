@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="ForMage\Learning\Api\SizeInterface"
+                type="ForMage\Learning\Model\SizeGreat" />
+    <preference for="ForMage\Learning\Api\ColorInterface"
+                type="ForMage\Learning\Model\ColorBlack" />
+    <preference for="ForMage\Learning\Api\MaterialInterface"
+                type="ForMage\Learning\Model\MaterialSynthetic" />
+
+    <virtualType name="typeMaterial" type="ForMage\Learning\Model\SizeGreat">
+        <arguments>
+            <argument name="material" xsi:type="object">ForMage\Learning\Model\MaterialSynthetic</argument>
+        </arguments>
+    </virtualType>
+    <type name="ForMage\Learning\Model\Product\Shoe">
+        <arguments>
+            <argument name="color" xsi:type="object">ForMage\Learning\Model\ColorBlack</argument>
+           <argument name="size" xsi:type="object">typeMaterial</argument>
+        </arguments>
+    </type>
+
+
+    <type name="ForMage\Learning\Model\Product\Shirt">
+        <arguments>
+            <argument name="typeText" xsi:type="string">MY STRING IN ARGUMENT TYPE</argument>
+            <argument name="typeNumber" xsi:type="number">19.80</argument>
+            <argument name="typeArray" xsi:type="array">
+                <item name="customName" xsi:type="string">Antonio da Silva</item>
+                <item name="customColor" xsi:type="string">Purple</item>
+            </argument>
+            <argument name="typeInitParameter" xsi:type="init_parameter">ForMage\Learning\Model\Product\Shirt::MY_CONSTANT</argument>
+        </arguments>
+    </type>
+
+    <type name="ForMage\Learning\Controller\Page\Index">
+        <plugin name="plugin-controller-one" type="ForMage\Learning\Plugin\PluginOne" sortOrder="10"></plugin>
+        <plugin name="plugin-controller-two" type="ForMage\Learning\Plugin\PluginTwo" sortOrder="20"></plugin>
+        <plugin name="plugin-controller-three" type="ForMage\Learning\Plugin\PluginThree" sortOrder="30"></plugin>
+
+        <arguments>
+            <argument name="slowLoading" xsi:type="object">ForMage\Learning\Model\SlowLoading\Proxy</argument>
+        </arguments>
+
+    </type>
+
+</config>
+

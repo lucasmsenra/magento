@@ -1,0 +1,8 @@
+<?php
+
+use Magenteiro\Sharer\Block\Sharer;
+/** @var Sharer $block */
+?>
+<a href="https://www.facebook.com/sharer/sharer.php?u=<?= $block->getCurrentUrl()?>" >
+    <img src="<?=$block->getViewFileUrl('Magenteiro_Sharer::images/fbshare.png')?>" width="20" alt="Compartilhar no Facebook" >
+    </a>

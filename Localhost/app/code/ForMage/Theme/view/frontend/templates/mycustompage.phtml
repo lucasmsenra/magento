@@ -1,0 +1,8 @@
+<h2>Olá! Esta é a minha página customizada no Magento 2.</h2>
+
+<?php
+    /** @var \ForMage\Theme\Block\CustomContent $block */
+    $viewModel = $block->getViewModel();
+?>
+
+<h4><?php echo $viewModel->getProductNameViewModel('WT09');?></h4>

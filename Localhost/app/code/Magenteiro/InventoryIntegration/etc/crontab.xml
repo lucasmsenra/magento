@@ -1,0 +1,24 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="magenteiro_inventory_integration" instance="Magenteiro\InventoryIntegration\Cron\InventoryUpdate"
+        method="execute">
+            <!-- Altere isso a gosto. http://crontab-generator.org/ -->
+            <schedule>* * * * *</schedule>
+
+            <!--
+            exemplos:
+
+            Todo minuto
+            <schedule>* * * * *</schedule>
+
+            Todo dia ao meio dia e a meia noite
+            <schedule>0 0,12 * * *</schedule>
+
+            De 6 em 6 horas
+            <schedule>0 */6 * * *</schedule>
+
+            -->
+
+        </job>
+    </group>
+</config>
